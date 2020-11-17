@@ -5,8 +5,6 @@ import Register from './Register';
 import Invest from './Invest';
 import Withdraw from './Withdraw';
 import Convert from './Convert';
-import Design1 from '../Design1';
-
 import {
 	Container,
 	AppBar,
@@ -89,7 +87,6 @@ const Home = () => {
 					</AppBar>
 				</Paper>
 				{renderPage()}
-				<Design1 />
 			</Container>
 		</Fragment>
 	);

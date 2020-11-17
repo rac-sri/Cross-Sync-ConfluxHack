@@ -6,34 +6,19 @@ import {
 	TextField,
 	Button,
 } from '@material-ui/core';
-import { contract } from '../../utils/harmony/wallet.ts';
-import { addExchangeMoney as OneExchange } from '../../utils/harmony/utils/user.ts';
-import { addExchangeMoney } from '../../utils/ethereum/utils/user.ts';
-import ethereum from '../../utils/ethereum/loadBlockchainData.ts';
 
 export default function Convert() {
 	const [eth, updateETH] = useState(0);
 	const [one, updateOne] = useState(0);
-	const [ethAdd, updateETHAdd] = useState('0x');
-	const [oneAdd, updateOneAdd] = useState('0x');
+	const [, updateETHAdd] = useState('0x');
+	const [, updateOneAdd] = useState('0x');
 
 	const onSubmitETH = async () => {
-		const contractInstance = await ethereum();
 		console.log(eth);
-		const tx = await addExchangeMoney(
-			contractInstance.Contract,
-			contractInstance.accounts,
-			10,
-			eth
-		);
-		console.log(oneAdd, tx);
 	};
 
 	const onSubmitOne = async () => {
 		console.log(eth, one);
-		const contractInstance = await contract();
-		const tx = await OneExchange(contractInstance, 10, one);
-		console.log(tx, ethAdd);
 	};
 
 	return (

@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container } from '@material-ui/core';
-import { contract } from '../../utils/harmony/wallet.ts';
-import { refundMoney as OneWithdraw } from '../../utils/harmony/utils/user.ts';
-import { refundMoney } from '../../utils/ethereum/utils/user.ts';
-import ethereum from '../../utils/ethereum/loadBlockchainData.ts';
 
 const Invest = () => {
 	const [eth, updateETH] = useState(0);
@@ -11,14 +7,10 @@ const Invest = () => {
 
 	const onSubmitOne = async () => {
 		console.log(eth, one);
-		const contractInstance = await contract();
-		OneWithdraw(contractInstance, one);
 	};
 
 	const onSubmitETH = async () => {
-		const contractInstance = await ethereum();
 		console.log(eth);
-		refundMoney(contractInstance.Contract, contractInstance.accounts, eth);
 	};
 
 	return (
