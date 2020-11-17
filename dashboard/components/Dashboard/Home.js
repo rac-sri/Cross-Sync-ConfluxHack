@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import Navbar from '../Navbar';
-import Register from './Register';
+import Register from './Pool';
 import Invest from './Invest';
 import Withdraw from './Withdraw';
 import Convert from './Convert';
