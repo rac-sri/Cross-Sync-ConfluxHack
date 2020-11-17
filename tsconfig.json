@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"jsx": "react",
+		"allowJs": true,
+		"strict": false,
+		"module": "commonjs",
+		"noImplicitAny": false,
+		"outDir": "./build/",
+		"preserveConstEnums": true,
+		"resolveJsonModule": true,
+		"removeComments": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"target": "es6",
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"allowSyntheticDefaultImports": true
+	},
+
+	"include": [
+		"injectedIframe/**/**/*",
+		"injectedIframe/**/**/**/*",
+		"server.js",
+		"controller.ts",
+		"server",
+		"injectedIframe/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"./node_modules",
+		"./node_modules/*",
+		"./node_modules/@types/node/index.d.ts"
+	]
+}
