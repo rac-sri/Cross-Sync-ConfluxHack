@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom';
 import Home from './components/Dashboard/Home';
 import { CssBaseline } from '@material-ui/core';
+import './utils/conflux/contract.ts';
 
-// import MoneyExchange from './Components/moneyExchange.tsx';
 function App() {
 	return (
 		<Fragment>

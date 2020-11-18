@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import Navbar from '../Navbar';
-import Register from './Pool';
+import Pool from './Pool';
 import Invest from './Invest';
 import Withdraw from './Withdraw';
 import Convert from './Convert';
@@ -25,14 +25,14 @@ const Home = () => {
 	const { page } = useParams();
 
 	const pageToValue = {
-		register: 0,
+		Pool: 0,
 		invest: 1,
 		withdraw: 2,
 		convert: 3,
 	};
 
 	const valueToPage = {
-		0: 'register',
+		0: 'Pool',
 		1: 'invest',
 		2: 'withdraw',
 		3: 'convert',
@@ -49,8 +49,8 @@ const Home = () => {
 
 	const renderPage = () => {
 		switch (page) {
-			case 'register':
-				return <Register />;
+			case 'Pool':
+				return <Pool />;
 
 			case 'invest':
 				return <Invest />;
@@ -62,7 +62,7 @@ const Home = () => {
 				return <Convert />;
 
 			default:
-				return <Register />;
+				return <Pool />;
 		}
 	};
 
@@ -79,7 +79,7 @@ const Home = () => {
 							textColor="primary"
 							variant="scrollable"
 						>
-							<Tab label="Register" />
+							<Tab label="Pool" />
 							<Tab label="Invest" />
 							<Tab label="Withdraw" />
 							<Tab label="Convert" />

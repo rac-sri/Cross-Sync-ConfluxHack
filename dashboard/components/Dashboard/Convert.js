@@ -26,7 +26,7 @@ export default function Convert() {
 			<br />
 			<Card>
 				<CardContent>
-					<h2> ETH to ONE</h2>
+					<h2> ETH to CFX</h2>
 					<br />
 					<TextField
 						id="outlined-basic"
@@ -57,7 +57,7 @@ export default function Convert() {
 			<br />
 			<Card>
 				<CardContent>
-					<h2>ONE to ETH</h2>
+					<h2>CFX to ETH</h2>
 					<br />
 					<TextField
 						id="outlined-basic"
@@ -69,7 +69,7 @@ export default function Convert() {
 					<br />
 					<TextField
 						id="outlined-basic"
-						label="Get ONE Token"
+						label="Get CRX Token"
 						variant="outlined"
 						margin="dense"
 						onChange={(e) => updateOne(e.target.value)}

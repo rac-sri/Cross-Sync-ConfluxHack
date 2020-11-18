@@ -42,7 +42,7 @@ const Invest = () => {
 				<div style={{ display: 'flex', flexDirection: 'column' }}>
 					<TextField
 						id="outlined-basic"
-						label="Deposit ONE"
+						label="Deposit CRX"
 						variant="outlined"
 						margin="dense"
 						onChange={(e) => updateOne(e.target.value)}
