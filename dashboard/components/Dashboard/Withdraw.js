@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container } from '@material-ui/core';
+import { refundMoney } from '../../utils/ethereum/utils/user.ts';
+import { refundMoney as refundCFX } from '../../utils/conflux/user.ts';
+import loadBlockchain from '../../utils/ethereum/loadBlockchainData.ts';
 
 const Invest = () => {
 	const [eth, updateETH] = useState(0);
-	const [one, updateOne] = useState(0);
+	const [cfx, updateCFX] = useState(0);
 
-	const onSubmitOne = async () => {
-		console.log(eth, one);
+	const onSubmitCFX = async () => {
+		const reciept = await refundCFX(cfx);
+		console.log(reciept);
 	};
 
 	const onSubmitETH = async () => {
-		console.log(eth);
+		const { Contract, accounts } = await loadBlockchain();
+		const reciept = await refundMoney(Contract, accounts, eth);
+		console.log(reciept);
 	};
 
 	return (
@@ -42,16 +48,16 @@ const Invest = () => {
 				<div style={{ display: 'flex', flexDirection: 'column' }}>
 					<TextField
 						id="outlined-basic"
-						label="Withdraw CRX"
+						label="Withdraw CFX"
 						variant="outlined"
 						margin="dense"
-						onChange={(e) => updateOne(e.target.value)}
+						onChange={(e) => updateCFX(e.target.value)}
 					/>
 					<br />
 					<Button
 						variant="contained"
 						color="primary"
-						onClick={() => onSubmitOne()}
+						onClick={() => onSubmitCFX()}
 					>
 						Withdraw
 					</Button>

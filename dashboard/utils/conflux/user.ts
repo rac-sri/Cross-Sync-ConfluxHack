@@ -1,5 +1,5 @@
 import contract from './cfx.ts';
-const util = require('js-conflux-sdk/src/util');
+const util = require('js-conflux-sdk/src');
 
 declare global {
 	interface Window {
@@ -8,23 +8,28 @@ declare global {
 }
 
 const depositToThePool = async (value: any): Promise<any> => {
+	await window.conflux.enable();
 	const tx = contract.deposit();
 	const receipt = await window.conflux.send('cfx_sendTransaction', [
 		{
 			to: contract.address,
 			from: window.conflux.selectedAddress,
 			data: tx.data,
-			value: value.toString(),
+			value: util.Drip.fromCFX(value),
 		},
 	]);
 	return receipt;
 };
 
 const refundMoney = async (amount: Number): Promise<any> => {
+	console.log(util);
+	console.log(util.Drip.fromCFX(amount));
+	await window.conflux.enable();
 	const tx = contract.refund(
-		window.conflux.sellectedAddress,
-		amount.toString()
+		window.conflux.selectedAddress,
+		util.Drip.fromCFX(amount)
 	);
+	console.log(amount.toString());
 	const receipt = await window.conflux.send('cfx_sendTransaction', [
 		{
 			to: contract.address,
