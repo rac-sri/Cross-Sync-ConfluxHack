@@ -10,5 +10,14 @@ const transferEquivalentAmountFn = async (addr: String, value: Number) => {
 		});
 	return result;
 };
+const redeemExchangeMoney = async (addr: String, value: Number) => {
+	const { accounts, contract } = await loadWeb3();
+	const result = await contract.methods
+		.redeemExchangeMoney(addr, Web3.utils.toWei(value.toString()))
+		.send({
+			from: accounts[0],
+		});
+	return result;
+};
 
-export default transferEquivalentAmountFn;
+export { transferEquivalentAmountFn, redeemExchangeMoney };
