@@ -41,3 +41,10 @@
    -  Contract Address : 0x0ae59be94C1dd967e2eD2F7c2cF04388f0b4C362
 
 ---
+
+TODO:
+
+-  UI Improvements
+-  Refactoring
+-  ChainLink Integration for decentralized api calls (Cross-Sync V2)
+-  Reward Claim Tab
