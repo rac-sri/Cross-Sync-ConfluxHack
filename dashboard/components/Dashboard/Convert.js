@@ -6,19 +6,27 @@ import {
 	TextField,
 	Button,
 } from '@material-ui/core';
+import loadBlockchain from '../../utils/ethereum/loadBlockchainData.ts';
+import { addExchangeMoney } from '../../utils/conflux/user.ts';
+import { addExchangeMoney as ethExchange } from '../../utils/ethereum/utils/user.ts';
 
 export default function Convert() {
 	const [eth, updateETH] = useState(0);
 	const [one, updateOne] = useState(0);
-	const [, updateETHAdd] = useState('0x');
-	const [, updateOneAdd] = useState('0x');
+	const [ethAdd, updateETHAdd] = useState('0x');
+	const [cfxAdd, updateOneAdd] = useState('0x');
 
 	const onSubmitETH = async () => {
-		console.log(eth);
+		const { Contract, accounts } = await loadBlockchain();
+		console.log(eth, ethAdd);
+		const reciept = await ethExchange(Contract, accounts, 2, eth);
+		console.log(reciept);
 	};
 
 	const onSubmitOne = async () => {
-		console.log(eth, one);
+		console.log(eth, one, cfxAdd);
+		const reciept = await addExchangeMoney(2, one);
+		console.log(reciept);
 	};
 
 	return (
@@ -30,7 +38,7 @@ export default function Convert() {
 					<br />
 					<TextField
 						id="outlined-basic"
-						label="ONE Address"
+						label="CFX Address"
 						variant="outlined"
 						margin="dense"
 						onChange={(e) => updateOneAdd(e.target.value)}
@@ -69,7 +77,7 @@ export default function Convert() {
 					<br />
 					<TextField
 						id="outlined-basic"
-						label="Get CRX Token"
+						label="Get CFX Token"
 						variant="outlined"
 						margin="dense"
 						onChange={(e) => updateOne(e.target.value)}

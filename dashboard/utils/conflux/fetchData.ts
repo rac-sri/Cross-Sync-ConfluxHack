@@ -28,10 +28,10 @@ const getUserDetails = async () => {
 	window.conflux.enable();
 	console.log(window.conflux.selectedAddress);
 	const x = await contract.getUserDetails(window.conflux.selectedAddress);
-	console.log(x);
 	const [value1, value2, value3, value4] = await contract.getUserDetails(
 		window.conflux.selectedAddress
 	);
+	console.log(value1.toString());
 	return {
 		valueToThePool: util.Drip(value1.toString()).toCFX(),
 		valueForExchange: util.Drip(value2.toString()).toCFX(),

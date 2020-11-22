@@ -9,6 +9,7 @@ declare global {
 
 const depositToThePool = async (value: any): Promise<any> => {
 	await window.conflux.enable();
+	console.log(util.Drip.fromCFX(value));
 	const tx = contract.deposit();
 	const receipt = await window.conflux.send('cfx_sendTransaction', [
 		{
@@ -42,12 +43,13 @@ const refundMoney = async (amount: Number): Promise<any> => {
 
 const addExchangeMoney = async (overhead: Number, value): Promise<any> => {
 	const tx = contract.addExchangeMoney(overhead);
+	console.log(util.Drip.fromCFX(value));
 	const receipt = await window.conflux.send('cfx_sendTransaction', [
 		{
 			to: contract.address,
 			from: window.conflux.selectedAddress,
 			data: tx.data,
-			value: value.toString(),
+			value: util.Drip.fromCFX(value),
 		},
 	]);
 	return receipt;
