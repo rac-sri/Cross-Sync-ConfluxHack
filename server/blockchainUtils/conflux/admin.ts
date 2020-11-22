@@ -2,7 +2,8 @@
 
 import { Conflux } from 'js-conflux-sdk';
 import Contract from '../CrossSync.json';
-import util from 'js-conflux-sdk/src';
+// import util from 'js-conflux-sdk/src';
+import Web3 from 'web3';
 
 require('dotenv').config();
 
@@ -22,8 +23,9 @@ const transferEquivalentAmountFn = async (
 	addr: String,
 	value: Number
 ): Promise<any> => {
+	console.log(account);
 	const receipt = await contract
-		.transferEquivalentAmountFn(addr, util.Drip.fromCFX(value))
+		.transferEquivalentAmountFn(addr, Web3.utils.toWei(value.toString()))
 		.sendTransaction({ from: account });
 	return receipt;
 };
@@ -32,8 +34,9 @@ const redeemExchangeMoney = async (
 	addr: String,
 	value: Number
 ): Promise<any> => {
+	console.log(account);
 	const receipt = await contract
-		.redeemExchangeMoney(addr, util.Drip.fromCFX(value))
+		.redeemExchangeMoney(addr, Web3.utils.toWei(value.toString()))
 		.sendTransaction({ from: account });
 	return receipt;
 };

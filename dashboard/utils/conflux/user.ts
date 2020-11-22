@@ -1,5 +1,6 @@
 import contract from './cfx.ts';
 const util = require('js-conflux-sdk/src');
+import web3 from 'web3';
 
 declare global {
 	interface Window {
@@ -16,7 +17,7 @@ const depositToThePool = async (value: any): Promise<any> => {
 			to: contract.address,
 			from: window.conflux.selectedAddress,
 			data: tx.data,
-			value: util.Drip.fromCFX(value),
+			value: web3.utils.toHex(value.toString()),
 		},
 	]);
 	return receipt;
@@ -49,7 +50,7 @@ const addExchangeMoney = async (overhead: Number, value): Promise<any> => {
 			to: contract.address,
 			from: window.conflux.selectedAddress,
 			data: tx.data,
-			value: util.Drip.fromCFX(value),
+			value: web3.utils.toHex(value.toString()),
 		},
 	]);
 	return receipt;

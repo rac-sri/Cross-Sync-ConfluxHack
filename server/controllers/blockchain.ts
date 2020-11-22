@@ -14,9 +14,12 @@ const eth = async (req: Request, res: Response) => {
 	const tx = await web3.eth.getTransactionReceipt(req.body.tx);
 	try {
 		if (tx) {
-			await transEquiCFX(req.body.addr, req.body.value);
-			await redeemExchangeMoney(req.body.addrSelf, req.body.value);
-			res.send('success');
+			const state1 = await transEquiCFX(req.body.addr, req.body.value);
+			const state2 = await redeemExchangeMoney(
+				req.body.addrSelf,
+				req.body.value
+			);
+			res.send({ state1, state2 });
 			res.end();
 		}
 	} catch (e) {
@@ -27,12 +30,18 @@ const eth = async (req: Request, res: Response) => {
 
 const cfx = async (req: Request, res: Response) => {
 	const tx = await web3.eth.getTransactionReceipt(req.body.tx);
-
+	console.log(req.body);
 	try {
 		if (tx) {
-			await transferEquivalentAmountFn(req.body.addr, req.body.value);
-			await redeemExchangeMoneyCFX(req.body.addrSelf, req.body.value);
-			res.send('success');
+			const state1 = await transferEquivalentAmountFn(
+				req.body.addr,
+				req.body.value
+			);
+			const state2 = await redeemExchangeMoneyCFX(
+				req.body.addrSelf,
+				req.body.value
+			);
+			res.send({ state1, state2 });
 			res.end();
 		}
 	} catch (e) {

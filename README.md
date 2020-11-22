@@ -2,7 +2,7 @@
 
 [WIP]
 
-![](CrossSync.jpeg)
+![](Cross-Sync.png)
 
 -  Two Contracts Deployed, one on Ethereum and the other on Conflux.
 -  "Liquidators" can come and invest in the "pool", either in ETH or CFX token.
