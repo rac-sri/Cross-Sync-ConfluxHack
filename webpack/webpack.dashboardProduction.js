@@ -6,7 +6,7 @@ module.exports = {
 	entry: './dashboard/index.js',
 	output: {
 		filename: 'client.js',
-		path: path.join(__dirname, '..', 'buildDashboard'),
+		path: path.join(__dirname, '..', 'docs'),
 	},
 	node: {
 		global: false,
