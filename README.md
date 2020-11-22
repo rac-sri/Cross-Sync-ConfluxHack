@@ -48,3 +48,21 @@ TODO:
 -  Refactoring
 -  ChainLink Integration for decentralized api calls (Cross-Sync V2)
 -  Reward Claim Tab
+
+### Screenshots
+
+1. Your Pool Share:
+
+![](github/2.png)
+
+2. Your Way to become a Liquidator:
+
+![](github/3.png)
+
+3. Get back your funds:
+
+![](github/5.png)
+
+4. Convert Your Funds Securely:
+
+![](github/7.png)
