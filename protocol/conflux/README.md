@@ -17,3 +17,5 @@ Deploying 'CrossSync'
 > gas price: 20 GDrip
 > value sent: 0 CFX
 > total cost: 0.02571754 CFX
+
+0x8d27e34c6e9462803c5ee0512307b181afe60fc9

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -9,7 +9,17 @@ import Home from './components/Dashboard/Home';
 import { CssBaseline } from '@material-ui/core';
 import './utils/conflux/contract.ts';
 
+async function init() {
+	//@ts-ignore
+	await window.conflux.enable();
+	const accounts = await window.conflux.send({ method: 'cfx_accounts' });
+	console.log(accounts);
+}
+
 function App() {
+	useEffect(() => {
+		init();
+	}, []);
 	return (
 		<Fragment>
 			<Router>

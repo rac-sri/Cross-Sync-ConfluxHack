@@ -1,23 +1,31 @@
-import Contract from '../ethereum/CrossSync.json';
-import conflux from './cfx.ts';
+import contract from './cfx.ts';
+const util = require('js-conflux-sdk/src/util');
 
-const contract = conflux.Contract({
-	abi: Contract.abi,
-	address: '0x865b09A7EeeaF77c06F98178114385149635Acf1',
-});
 test();
 
 async function test() {
 	console.log('start');
-	//@ts-ignore
-	await window.conflux.enable();
+
 	//@ts-ignore
 	const accounts = await window.conflux.send({ method: 'cfx_accounts' });
 	console.log(contract);
-	const a = await contract.deposit().sendTransaction({
-		from: accounts[0],
-		gasPrice: 11999999,
-		value: 2,
-	});
+	const money = contract.getMoney();
+	//@ts-ignore
+	const get = await window.conflux.send('cfx_call', [
+		{ to: contract.address, data: money.data },
+	]);
+	console.log(get);
+
+	const tx = contract['deposit']();
+	//@ts-ignore
+	const a = await window.conflux.send('cfx_sendTransaction', [
+		{
+			to: contract.address,
+			// @ts-ignore
+			from: window.conflux.selectedAddress,
+			data: tx.data,
+			value: '0x01',
+		},
+	]);
 	console.log(a);
 }
