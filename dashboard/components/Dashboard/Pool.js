@@ -1,6 +1,12 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
-import { makeStyles, Paper } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
+// import fetchCFX from '../../utils/conflux/fetchData.ts';
+import { getUserDetails } from '../../utils/conflux/fetchData.ts';
+import { getUserDetails as ethGetUserData } from '../../utils/ethereum/utils/fetchData.ts';
+import Table from './Table';
+// import fetchETH from '../../utils/ethereum/utils/fetchData.ts';
+import loadBlockchain from '../../utils/ethereum/loadBlockchainData.ts';
 
 const useStyles = makeStyles(() => ({
 	parent_div: {
@@ -34,16 +40,29 @@ const useStyles = makeStyles(() => ({
 
 const Register = () => {
 	const classes = useStyles();
+	const [eth, updateEth] = useState({});
+	const [cfx, updateCrx] = useState({});
 
-	// const [email, setEmail] = useState('');
-	// const [link, setLink] = useState('');
-	// const [ethAdd, setEthAdd] = useState('');
-	// const [oneAdd, setOneAdd] = useState('');
-
+	useEffect(() => {
+		const load = async () => {
+			const { Contract, accounts } = await loadBlockchain();
+			const eth = await ethGetUserData(Contract, accounts);
+			updateEth(eth);
+			window.conflux.enable();
+			console.log('here');
+			const cfxvAL = await getUserDetails();
+			updateCrx(cfxvAL);
+			console.log(eth, cfx);
+		};
+		load();
+	}, []);
 	return (
 		<Fragment>
 			<div className={classes.parent_div}>
-				<Paper elevation={3} variant="elevation"></Paper>
+				<Table row={eth} />
+			</div>
+			<div className={classes.parent_div}>
+				<Table row={cfx} />
 			</div>
 		</Fragment>
 	);

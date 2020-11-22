@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import Home from './components/Dashboard/Home';
 import { CssBaseline } from '@material-ui/core';
-import './utils/conflux/contract.ts';
 
 async function init() {
 	//@ts-ignore
