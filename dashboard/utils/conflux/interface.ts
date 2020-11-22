@@ -9,15 +9,20 @@ declare global {
 	}
 }
 
-// const overheadPercentageValue = async (value:Number,overHeadPercent: Number)=>{
-//     const tx = contract.overheadPercentageValue(util.unit.fromCFXToDrip(value),overHeadPercent.toString())
-//     const data = await window.conflux.send("cfx_call",[{
-//         to: contract.address,
-//         data: tx.data
-//     }]);
-//     const drip = util.format.bigInt(data);
-//     return util.unit.fromDripToCFX(drip);
-// }
+const overheadPercentage = async (value: Number, overHeadPercent: Number) => {
+	const tx = contract.overheadPercentageValue(
+		util.unit.fromCFXToDrip(value),
+		overHeadPercent.toString()
+	);
+	const data = await window.conflux.send('cfx_call', [
+		{
+			to: contract.address,
+			data: tx.data,
+		},
+	]);
+	const drip = util.format.bigInt(data);
+	return util.unit.fromDripToCFX(drip);
+};
 
 const updateBalance = async (
 	address: String,
@@ -49,4 +54,4 @@ const moneyRecievedByLiquidator = async () => {
 	return util.unit.fromDripToCFX(drip);
 };
 
-export { moneyRecievedByLiquidator, updateBalance };
+export { moneyRecievedByLiquidator, updateBalance, overheadPercentageValue };
