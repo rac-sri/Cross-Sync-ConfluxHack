@@ -32,7 +32,7 @@
 
 ### Contract Addresses
 
--  **Conflux Testnet** : https://api.s0.b.hmny.io:
+-  **Conflux Testnet** : http://testnet-jsonrpc.conflux-chain.org:12537:
 
    -  Contract Address : 0x8d27e34c6e9462803c5ee0512307b181afe60fc9
 
