@@ -30,6 +30,8 @@
 
 ---
 
+Client Side Demo ( Rinkeby and Conflux Testnet ) : https://rachit2501.github.io/Cross-Sync-ConfluxHack/
+
 ### Contract Addresses
 
 -  **Conflux Testnet** : http://testnet-jsonrpc.conflux-chain.org:12537:
@@ -40,7 +42,7 @@
 
    -  Contract Address : 0xa165DC40178169856A7A08d77C7f612434F96952
 
-Client Side Demo ( Rinkeby and Conflux Testnet ) : https://rachit2501.github.io/Cross-Sync-ConfluxHack/
+
 ---
 
 TODO:
