@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 // import mongoose from 'mongoose';
-import blockchain from './routes/blockchain';
+import blockchain from './routes/blockchain.ts';
 import cors from 'cors';
 
 const app = express();

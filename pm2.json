@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "name": "crossSync",
+            "exec_mode": "cluster",
+            "instances": "min",
+            "script": "server/",
+            "interpreter": "ts-node"
+        }
+    ]
+}
