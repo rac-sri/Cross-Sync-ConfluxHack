@@ -10,7 +10,7 @@
 		"webpack": "webpack",
 		"webpack-dev-server": "webpack-dev-server",
 		"server:dev": "ts-node-dev server",
-		"server": "npm run prod:iFrame && ts-node server",
+		"server": "ts-node server",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
 		"format": "prettier --write \"*/**/*.{js,jsx}\"",

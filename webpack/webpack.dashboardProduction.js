@@ -6,10 +6,10 @@ module.exports = {
 	entry: './dashboard/index.js',
 	output: {
 		filename: 'client.js',
-		path: path.join(__dirname, '..', 'docs'),
+		path: path.join(__dirname, '..', 'server', 'public'),
 	},
 	node: {
-		global: false,
+		global: true,
 		__dirname: false,
 		__filename: false,
 	},

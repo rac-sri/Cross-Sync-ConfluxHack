@@ -16,7 +16,7 @@ const account = cfx.wallet.addPrivateKey('0x' + process.env.PVTCFX);
 
 const contract = cfx.Contract({
 	abi: Contract.abi,
-	address: '0x8d27e34c6e9462803c5ee0512307b181afe60fc9',
+	address: '0x856b5cd8177ba3876881b6fca0ef0ff7895d18f8',
 });
 
 const transferEquivalentAmountFn = async (

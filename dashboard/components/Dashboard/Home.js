@@ -5,6 +5,7 @@ import Pool from './Pool';
 import Invest from './Invest';
 import Withdraw from './Withdraw';
 import Convert from './Convert';
+import Reward from './Rewards';
 import {
 	Container,
 	AppBar,
@@ -29,6 +30,7 @@ const Home = () => {
 		invest: 1,
 		withdraw: 2,
 		convert: 3,
+		reward: 4,
 	};
 
 	const valueToPage = {
@@ -36,6 +38,7 @@ const Home = () => {
 		1: 'invest',
 		2: 'withdraw',
 		3: 'convert',
+		4: 'reward',
 	};
 
 	const [tab, setTab] = useState(pageToValue[page]);
@@ -61,6 +64,9 @@ const Home = () => {
 			case 'convert':
 				return <Convert />;
 
+			case 'reward':
+				return <Reward />;
+
 			default:
 				return <Pool />;
 		}
@@ -83,6 +89,7 @@ const Home = () => {
 							<Tab label="Invest" />
 							<Tab label="Withdraw" />
 							<Tab label="Convert" />
+							<Tab label="Reward" />
 						</Tabs>
 					</AppBar>
 				</Paper>

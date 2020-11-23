@@ -34,11 +34,11 @@
 
 -  **Conflux Testnet** : http://testnet-jsonrpc.conflux-chain.org:12537:
 
-   -  Contract Address : 0x8d27e34c6e9462803c5ee0512307b181afe60fc9
+   -  Contract Address : 0x856b5cd8177ba3876881b6fca0ef0ff7895d18f8
 
 -  **Ethereum Testnet** : Rinkeby:
 
-   -  Contract Address : 0x0ae59be94C1dd967e2eD2F7c2cF04388f0b4C362
+   -  Contract Address : 0xa165DC40178169856A7A08d77C7f612434F96952
 
 ---
 
@@ -48,6 +48,7 @@ TODO:
 -  Refactoring
 -  ChainLink Integration for decentralized api calls (Cross-Sync V2)
 -  Reward Claim Tab
+-  Stabalizing the app and enhancing the protocol implementation.
 
 ### Screenshots
 
@@ -66,3 +67,7 @@ TODO:
 4. Convert Your Funds Securely:
 
 ![](github/7.png)
+
+5. Grab Your Rewards
+
+![](github/8.png)

@@ -99,6 +99,14 @@ contract CrossSync {
         return share;
     }
     
+
+    function withdraw() public returns (bool) {
+        uint256 addition = moneyRecievedByLiquidator(msg.sender);
+        uint256 amount = addition + userDetails[msg.sender].valueToThePool;
+        userDetails[msg.sender].valueToThePool = 0;
+        msg.sender.transfer(amount);
+        return true;
+    }
         
     // get contract details
     

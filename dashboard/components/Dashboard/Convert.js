@@ -22,10 +22,7 @@ export default function Convert() {
 			value: eth,
 			addrSelf: accounts[0],
 		};
-		const result = await Axios.post(
-			'http://localhost:5000/blockchain/eth',
-			data
-		);
+		const result = await Axios.post('/blockchain/eth', data);
 		alert(result);
 	};
 
@@ -40,10 +37,7 @@ export default function Convert() {
 			value: one,
 		};
 
-		const result = await Axios.post(
-			'http://localhost:5000/blockchain/cfx',
-			data
-		);
+		const result = await Axios.post('/blockchain/cfx', data);
 		console.log(result);
 		alert(result);
 		<Divider />;

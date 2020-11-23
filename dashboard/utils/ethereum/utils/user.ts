@@ -63,9 +63,25 @@ const addExchangeMoneyFromPool = async (
 		});
 };
 
+const collectRewards = async (
+	Contract: any,
+	accounts: Array<String>
+): Promise<any> => {
+	Contract.method
+		.withdraw()
+		.send({ from: accounts[0] })
+		.once('transactionHash', console.log)
+		.once('reciept', log)
+		.once('error', log)
+		.catch((e) => {
+			throw 'wrong';
+		});
+};
+
 export {
 	depositToThePool,
 	refundMoney,
 	addExchangeMoney,
 	addExchangeMoneyFromPool,
+	collectRewards,
 };

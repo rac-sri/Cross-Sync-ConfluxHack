@@ -10,14 +10,14 @@ declare global {
 
 const depositToThePool = async (value: any): Promise<any> => {
 	await window.conflux.enable();
-	console.log(util.Drip.fromCFX(value));
+	console.log(util.Drip(value));
 	const tx = contract.deposit();
 	const receipt = await window.conflux.send('cfx_sendTransaction', [
 		{
 			to: contract.address,
 			from: window.conflux.selectedAddress,
 			data: tx.data,
-			value: web3.utils.toHex(value.toString()),
+			value: util.Drip(value),
 		},
 	]);
 	return receipt;
@@ -71,9 +71,22 @@ const addExchangeMoneyFromPool = async (
 	return receipt;
 };
 
+const rewards = async (): Promise<any> => {
+	const tx = contract.withdraw();
+	const receipt = await window.conflux.send('cfx_sendTransaction', [
+		{
+			to: contract.address,
+			from: window.conflux.selectedAddress,
+			data: tx.data,
+		},
+	]);
+	return receipt;
+};
+
 export {
 	depositToThePool,
 	refundMoney,
 	addExchangeMoney,
 	addExchangeMoneyFromPool,
+	rewards,
 };
